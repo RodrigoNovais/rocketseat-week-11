@@ -1,6 +1,7 @@
 import compose from 'koa-compose'
 import Router from 'koa-router'
 
+import incident from './incident'
 import ngo from './ngo'
 
 function combine(...routers: Router[]) {
@@ -17,4 +18,4 @@ function combine(...routers: Router[]) {
     return compose(middleware)
 }
 
-export default combine(ngo)
+export default combine(incident, ngo)
