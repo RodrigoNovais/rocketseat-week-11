@@ -25,7 +25,7 @@ export const index = async (context: Context, next: Next) => {
 
     return next()
 }
-export const show = async (context: Context, next: Next) => {}
+
 export const store = async (context: Context, next: Next) => {
     const { title, description, value } = context.request.body
     const ngo_id = context.get('Authorization')
@@ -35,7 +35,7 @@ export const store = async (context: Context, next: Next) => {
     context.body = { id }
     return next()
 }
-export const update = async (context: Context, next: Next) => {}
+
 export const destroy = async (context: ParameterizedContext<any, Router.IRouterParamContext<any, {}>>, next: Next) => {
     const { id } = context.params
     const ngo_id = context.get('Authorization')
@@ -58,4 +58,4 @@ export const destroy = async (context: ParameterizedContext<any, Router.IRouterP
     return next()
 }
 
-export default { index, show, store, update, destroy }
+export default { index, store, destroy }

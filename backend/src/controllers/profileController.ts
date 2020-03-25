@@ -8,9 +8,4 @@ export const index = async (context: Context, next: Next) => {
     context.body = incidents
     return next()
 }
-export const show = async (context: Context, next: Next) => {}
-export const store = async (context: Context, next: Next) => {}
-export const update = async (context: Context, next: Next) => {}
-export const destroy = async (context: Context, next: Next) => {}
-
-export default { index, show, store, update, destroy }
+export default { index }
