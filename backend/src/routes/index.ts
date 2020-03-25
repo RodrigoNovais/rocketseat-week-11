@@ -1,6 +1,8 @@
 import compose from 'koa-compose'
 import Router from 'koa-router'
 
+import ngo from './ngo'
+
 function combine(...routers: Router[]) {
     if (!Array.isArray(routers))
         routers = [...arguments]
@@ -15,4 +17,4 @@ function combine(...routers: Router[]) {
     return compose(middleware)
 }
 
-export default combine()
+export default combine(ngo)
