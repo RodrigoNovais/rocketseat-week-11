@@ -1,7 +1,7 @@
 import Knex, { SchemaBuilder } from 'knex'
 
 export const up = function(knex: Knex): SchemaBuilder {
-    return knex.schema.createTable('ongs', (table: Knex.TableBuilder) => {
+    return knex.schema.createTable('NGOs', (table: Knex.TableBuilder) => {
         table.string('id').primary()
         table.string('name').notNullable()
         table.string('email').notNullable()
@@ -12,5 +12,5 @@ export const up = function(knex: Knex): SchemaBuilder {
 }
 
 export const down = function(knex: Knex): SchemaBuilder {
-    return knex.schema.dropTable('ongs');
+    return knex.schema.dropTable('NGOs');
 }
