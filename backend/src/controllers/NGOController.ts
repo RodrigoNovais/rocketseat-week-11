@@ -6,6 +6,7 @@ export const index = async (context: Context, next: Next) => {
     const ongs = await connection('NGOs').select('*')
 
     context.body = ongs
+    return next()
 }
 
 export const show = async (context: Context, next: Next) => {}
@@ -17,6 +18,7 @@ export const store = async (context: Context, next: Next) => {
     await connection('NGOs').insert({ id, name, email, whatsapp, city, uf })
 
     context.body = { id }
+    return next()
 }
 
 export const update = async (context: Context, next: Next) => {}
