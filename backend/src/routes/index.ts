@@ -3,6 +3,7 @@ import Router from 'koa-router'
 
 import incident from './incident'
 import ngo from './ngo'
+import profile from './profile'
 
 function combine(...routers: Router[]) {
     if (!Array.isArray(routers))
@@ -18,4 +19,4 @@ function combine(...routers: Router[]) {
     return compose(middleware)
 }
 
-export default combine(incident, ngo)
+export default combine(incident, ngo, profile)
