@@ -1,34 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import logoImage from '../../assets/logo.svg'
+import api from '../../services/api'
 
 import './styles.css'
 
-export default () => (
-    <div className="register-container">
-        <div className="content">
-            <section>
-                <img src={logoImage} alt="Be The Hero" />
+const Register: React.FC = () => {
+    const history = useHistory()
 
-                <h1>Cadastro</h1>
-                <p>Faça seu cadastro, entre na plataforma e ajude as pessoas a encontrarem os casos da sua ONG.</p>
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [whatsapp, setWhatsapp] = useState('')
+    const [city, setCity] = useState('')
+    const [uf, setUF] = useState('')
 
-                <Link className="back-link" to="/"><FiArrowLeft size={16} color="#E02041" /> Voltar para o login</Link>
-            </section>
-            <form>
-                <input type="text" placeholder="Nome da ONG" />
-                <input type="email" name="" id="" placeholder="Email" />
-                <input type="text" placeholder="Whatsapp" />
+    const handleRegister = async (e: React.FormEvent) => {
+        e.preventDefault()
 
-                <div className="input-group">
-                    <input type="text" placeholder="Cidade"/>
-                    <input type="text" placeholder="UF" style={{ width: 80 }} />
-                </div>
+        const data = { name, email, whatsapp, city, uf }
 
-                <button className="button" type="submit">Cadastrar</button>
-            </form>
+        api.post<{ id: string }>('ngo', data)
+            .then(response => {
+                alert(`Sua ID de acesso: ${response.data.id}`)
+                history.push('/')
+            })
+            .catch(error => alert('Erro no cadastro, tente novamente'))
+    }
+
+    return (
+        <div className="register-container">
+            <div className="content">
+                <section>
+                    <img src={logoImage} alt="Be The Hero" />
+
+                    <h1>Cadastro</h1>
+                    <p>Faça seu cadastro, entre na plataforma e ajude as pessoas a encontrarem os casos da sua ONG.</p>
+
+                    <Link className="back-link" to="/"><FiArrowLeft size={16} color="#E02041" /> Voltar para o login</Link>
+                </section>
+                <form onSubmit={handleRegister}>
+                    <input type="text" placeholder="Nome da ONG" value={name} onChange={e => setName(e.target.value)} />
+                    <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <input type="text" placeholder="Whatsapp" value={whatsapp} onChange={e => setWhatsapp(e.target.value)} />
+
+                    <div className="input-group">
+                        <input type="text" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)} />
+                        <input type="text" placeholder="UF" style={{ width: 80 }} value={uf} onChange={e => setUF(e.target.value)} />
+                    </div>
+
+                    <button className="button" type="submit">Cadastrar</button>
+                </form>
+            </div>
         </div>
-    </div>
-)
+    )
+}
+
+export default Register
