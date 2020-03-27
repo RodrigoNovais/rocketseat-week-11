@@ -26,6 +26,9 @@ const Login: React.FC = () => {
             .catch(error => alert('Falha no login, tente novamente'))
     }
 
+    if (localStorage.getItem('ngoId'))
+        history.push('/profile')
+
     return (
         <div className="login-container">
             <section className="form">

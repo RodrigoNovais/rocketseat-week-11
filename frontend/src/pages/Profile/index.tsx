@@ -26,7 +26,7 @@ const Profile: React.FC = () => {
             .catch(error => alert('Erro ao deletar caso, tente novamente'))
     }
 
-    const handleLogout = async () => {
+    const handleLogout = () => {
         localStorage.clear()
 
         history.push('/')
