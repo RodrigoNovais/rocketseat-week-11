@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiLogIn } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import logoImage from '../../assets/logo.svg'
 import heroesImage from '../../assets/heroes.png'
+import api from '../../services/api'
 
 import './styles.css'
 
-export default () => (
-    <div className="login-container">
-        <section className="form">
-            <img src={logoImage} alt="Be The Hero" />
-            <form>
-                <h1>Faça seu login</h1>
+const Login: React.FC = () => {
+    const history = useHistory()
 
-                <input type="text" placeholder="Sua ID" />
-                <button className="button" type="submit">Entrar</button>
+    const [id, setId] = useState('')
 
-                <Link className="back-link" to="/register"><FiLogIn size={16} color="#E02041" /> Não tenho cadastro</Link>
-            </form>
-        </section>
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault()
 
-        <img src={heroesImage} alt="Heroes"/>
-    </div>
-)
+        api.post<{ name: string }>('sessions', { id })
+            .then(response => {
+                localStorage.setItem('ngoId', id)
+                localStorage.setItem('ngoName', response.data.name)
+
+                history.push('/profile')
+            })
+            .catch(error => alert('Falha no login, tente novamente'))
+    }
+
+    return (
+        <div className="login-container">
+            <section className="form">
+                <img src={logoImage} alt="Be The Hero" />
+                <form onSubmit={handleLogin}>
+                    <h1>Faça seu login</h1>
+
+                    <input type="text" placeholder="Sua ID" value={id} onChange={e => setId(e.target.value)} />
+                    <button className="button" type="submit">Entrar</button>
+
+                    <Link className="back-link" to="/register"><FiLogIn size={16} color="#E02041" /> Não tenho cadastro</Link>
+                </form>
+            </section>
+
+            <img src={heroesImage} alt="Heroes"/>
+        </div>
+    )
+}
+
+export default Login
