@@ -35,7 +35,7 @@ export default function Incidents() {
         api.get<IncidentType[]>('incidents')
             .then(response => {
                 setIncidents(response.data)
-                setTotal(response.headers['X-Total-Count'])
+                setTotal(response.headers['x-total-count'])
             })
             .catch(error => console.log(error))
     }
