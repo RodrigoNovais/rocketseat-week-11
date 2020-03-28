@@ -25,39 +25,39 @@ export default StyleSheet.create({
 
     title: {
         fontSize: 30,
-        marginBottom: 16,
-        marginTop: 48,
+        marginTop: 24,
         color: '#13131a',
         fontWeight: 'bold',
     },
 
     description: {
         fontSize: 16,
-        lineHeight: 24,
         color: '#737380',
     },
 
     incidentList: {
-        marginTop: 32,
+        marginTop: 16,
     },
 
     incident: {
-        padding: 24,
+        paddingHorizontal: 24,
+        paddingVertical: 16,
         borderRadius: 8,
         backgroundColor: '#FFF',
         marginBottom: 16,
     },
 
     incidentProperty: {
+        flexGrow: 1,
+        width: 35,
         fontSize: 14,
         color: '#41414d',
         fontWeight: 'bold',
     },
 
     incidentValue: {
-        marginTop: 8,
+        flex: 10,
         fontSize: 15,
-        marginBottom: 24,
         color: '#737380',
     },
 
@@ -70,6 +70,7 @@ export default StyleSheet.create({
     detailsButtonText: {
         color: '#E02041',
         fontSize: 15,
+        marginTop: 8,
         fontWeight: 'bold',
     }
 })

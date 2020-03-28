@@ -48,7 +48,7 @@ export default function Detail() {
             <ScrollView contentContainerStyle={styles.incidentHolder} >
                 <View style={styles.incident}>
                     <View style={{ flexDirection: 'row', flex: 1 }}>
-                        <View style={[styles.propertyBlock, { width: 35 }]}>
+                        <View style={styles.propertyBlock}>
                             <Text style={styles.incidentProperty}>ONG: </Text>
                         </View>
                         <View style={{ flex: 10 }}>
@@ -57,7 +57,7 @@ export default function Detail() {
                     </View>
 
                     <View style={{ flexDirection: 'row', flex: 1, marginTop: 8 }}>
-                        <View style={[styles.propertyBlock, { width: 35 }]}>
+                        <View style={styles.propertyBlock}>
                             <Text style={styles.incidentProperty}>CASO: </Text>
                         </View>
                         <View style={{ flex: 10 }}>
@@ -67,7 +67,7 @@ export default function Detail() {
                     </View>
 
                     <View style={{ flexDirection: 'row', flex: 1, marginTop: 8 }}>
-                        <View style={[styles.propertyBlock, { width: 35 }]}>
+                        <View style={styles.propertyBlock}>
                             <Text style={styles.incidentProperty}>VALOR: </Text>
                         </View>
                         <View style={{ flex: 10 }}>

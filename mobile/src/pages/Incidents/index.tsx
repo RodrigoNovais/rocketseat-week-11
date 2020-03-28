@@ -61,19 +61,22 @@ export default function Incidents() {
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item }) => (
                 <View style={styles.incident}>
-                    <Text style={styles.incidentProperty}>ONG:</Text>
-                    <Text style={styles.incidentValue}>{item.name}</Text>
+                    <View style={{ flexDirection: 'row', flex: 1 }}>
+                        <Text style={styles.incidentProperty}>ONG:</Text>
+                        <Text style={styles.incidentValue}>{item.name}</Text>
+                    </View>
 
-                    <Text style={styles.incidentProperty}>CASO:</Text>
-                    <Text style={styles.incidentValue}>{item.title}</Text>
-                    
-                    <Text style={styles.incidentProperty}>VALOR:</Text>
-                    <Text style={styles.incidentValue}>{
-                        Intl.NumberFormat('pt-BR', {
-                            style: 'currency',
-                            currency: 'BRL'
-                        }).format(item.value)
-                    }</Text>
+                    <View style={{ flexDirection: 'row', flex: 1, marginTop: 8 }}>
+                        <Text style={styles.incidentProperty}>CASO:</Text>
+                        <Text style={styles.incidentValue}>{item.title}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', flex: 1, marginTop: 8 }}>
+                        <Text style={styles.incidentProperty}>VALOR:</Text>
+                        <Text style={styles.incidentValue}>{
+                            Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(item.value)
+                        }</Text>
+                    </View>
 
                     <TouchableOpacity style={styles.detailsButton} onPress={() => navigateToDetail(item)}>
                         <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
