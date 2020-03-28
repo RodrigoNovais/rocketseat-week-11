@@ -5,6 +5,7 @@ import Constants from 'expo-constants'
 export default StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'column',
         paddingHorizontal: 24,
         paddingTop: Constants.statusBarHeight + 20,
     },
@@ -13,31 +14,39 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginBottom: 20,
+    },
+
+    incidentHolder: {
+        flexGrow: 1,
     },
 
     incident: {
-        padding: 24,
+        paddingHorizontal: 24,
+        paddingVertical: 16,
         borderRadius: 8,
         backgroundColor: '#FFF',
         marginBottom: 16,
-        marginTop: 48,
+    },
+
+    propertyBlock: {
+        flexGrow: 1,
+        width: 35,
     },
 
     incidentProperty: {
-        fontSize: 14,
         color: '#41414d',
         fontWeight: 'bold',
-        marginTop: 24,
     },
 
     incidentValue: {
-        marginTop: 8,
         fontSize: 15,
         color: '#737380',
     },
 
     contactBox: {
-        padding: 24,
+        paddingHorizontal: 24,
+        paddingVertical: 16,
         borderRadius: 8,
         backgroundColor: '#FFF',
         marginBottom: 16,
@@ -46,14 +55,19 @@ export default StyleSheet.create({
     heroTitle: {
         fontWeight: 'bold',
         fontSize: 20,
-        color: '#13131a',
-        lineHeight: 30
+        lineHeight: 26
+    },
+
+    heroSubTitle: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        lineHeight: 26
     },
 
     heroDescription: {
         fontSize: 15,
         color: '#737380',
-        marginTop: 16,
+        marginTop: 8,
     },
 
     actions: {
