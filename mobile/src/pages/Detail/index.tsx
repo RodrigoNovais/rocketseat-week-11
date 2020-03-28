@@ -2,19 +2,20 @@ import React from 'react'
 import * as MailComposer from 'expo-mail-composer'
 
 import { View, Image, Text, TouchableOpacity, Linking, ScrollView } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons'
+
+import IncidentType from '../../interfaces/incident'
+
+import logoImage from '../../assets/logo.png'
 
 import styles from './styles'
 
-import logoImage from '../../assets/logo.png'
-import { IncidentType } from '../Incidents'
-
 export default function Detail() {
     const navigation = useNavigation()
-    const route = useRoute()
+    const route = useRoute<RouteProp<{ Details: { incident: IncidentType } }, 'Details'>>()
 
-    const incident = route.params['incident'] as IncidentType
+    const { incident } = route.params
 
     const formatValue = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)
     const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de R$ ${formatValue}`

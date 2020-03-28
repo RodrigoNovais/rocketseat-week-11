@@ -3,23 +3,12 @@ import { View, FlatList, Image, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons'
 
-import styles from './styles'
+import api from '../../services/api'
+import IncidentType from '../../interfaces/incident'
 
 import logoImage from '../../assets/logo.png'
-import api from '../../services/api'
 
-export interface IncidentType {
-    id: number
-    title: string
-    description: string,
-    value: number
-    ngo_id: string
-    name: string
-    email: string
-    whatsapp: string
-    city: string
-    uf: string
-}
+import styles from './styles'
 
 export default function Incidents() {
     const navigation = useNavigation()
