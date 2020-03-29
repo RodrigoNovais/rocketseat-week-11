@@ -33,6 +33,8 @@
         "typescript": "^3.7.4"
     },
     "dependencies": {
+        "@hapi/joi": "^17.1.1",
+        "@types/hapi__joi": "^16.0.12",
         "knex": "^0.20.13",
         "koa": "^2.11.0",
         "koa-bodyparser": "^4.2.1",
