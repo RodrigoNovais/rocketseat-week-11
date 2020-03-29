@@ -12,5 +12,5 @@ export const up = function(knex: Knex): SchemaBuilder {
 }
 
 export const down = function(knex: Knex): SchemaBuilder {
-    return knex.schema.dropTable('NGOs');
+    return knex.schema.dropTable('NGOs')
 }

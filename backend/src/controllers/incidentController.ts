@@ -1,5 +1,5 @@
 import { Context, Next, ParameterizedContext } from 'koa'
-import Router from 'koa-router'
+import { IRouterParamContext } from 'koa-router'
 import connection from '../database/connection'
 
 export const index = async (context: Context, next: Next) => {
@@ -36,7 +36,7 @@ export const store = async (context: Context, next: Next) => {
     return next()
 }
 
-export const destroy = async (context: ParameterizedContext<any, Router.IRouterParamContext<any, {}>>, next: Next) => {
+export const destroy = async (context: ParameterizedContext<any, IRouterParamContext<any, {}>>, next: Next) => {
     const { id } = context.params
     const ngo_id = context.get('Authorization')
 
