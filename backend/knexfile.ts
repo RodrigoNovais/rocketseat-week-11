@@ -1,5 +1,16 @@
 import { Config } from 'knex'
 
+export const test: Config = {
+    client: 'sqlite3',
+    connection: {
+        filename: './src/database/test.sqlite',
+    },
+    migrations: {
+        directory: './src/database/migrations'
+    },
+    useNullAsDefault: true,
+}
+
 export const development: Config = {
     client: 'sqlite3',
     connection: {
@@ -45,6 +56,7 @@ export const production: Config = {
 
 export default {
     development,
+    test,
     staging,
     production,
 }

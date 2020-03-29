@@ -1,4 +1,4 @@
 import knex from 'knex'
-import configuration from '../../knexfile'
+import { development, test } from '../../knexfile'
 
-export default knex(configuration.development)
+export default knex(process.env.NODE_ENV === 'test' ? test : development)
