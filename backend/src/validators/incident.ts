@@ -20,7 +20,7 @@ export const createIncident = {
         schema: Joi.object().keys({
             title: Joi.string().required(),
             description: Joi.string().required(),
-            value: Joi.string().required(),
+            value: Joi.number().required(),
         }),
     } as ValidatorParameter,
 }

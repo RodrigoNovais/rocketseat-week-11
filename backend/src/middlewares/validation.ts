@@ -13,7 +13,7 @@ export const body = ({ schema, options }: ValidatorParameter) => {
 
             return next()
         }
-        
+
         context.status = 400
         context.body = { error }
     }
@@ -28,7 +28,7 @@ export const header = ({ schema, options }: ValidatorParameter) => {
 
             return next()
         }
-        
+
         context.status = 400
         context.body = { error }
     }
@@ -43,7 +43,7 @@ export const query = ({ schema, options }: ValidatorParameter) => {
 
             return next()
         }
-        
+
         context.status = 400
         context.body = { error }
     }
@@ -58,7 +58,7 @@ export const params = ({ schema, options }: ValidatorParameter) => {
 
             return next()
         }
-        
+
         context.status = 400
         context.body = { error }
     }
