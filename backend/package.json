@@ -6,7 +6,7 @@
     "scripts": {
         "build": "tsc",
         "start": "nodemon --watch \"src/\" --exec \"ts-node -r dotenv/config src/index.ts\" -e ts",
-        "test": "cross-env NODE_ENV=test jest"
+        "test": "cross-env NODE_ENV=test jest --coverage --watchAll"
     },
     "keywords": [
         "koa",
