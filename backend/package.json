@@ -41,7 +41,7 @@
         "typescript": "^3.7.4"
     },
     "dependencies": {
-        "knex": "^0.20.13",
+        "knex": "^2.4.0",
         "koa": "^2.11.0",
         "koa-bodyparser": "^4.2.1",
         "koa-compose": "^4.1.0",
